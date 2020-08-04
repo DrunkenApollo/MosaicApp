@@ -1,0 +1,59 @@
+﻿@page "/"
+@using ImageMozaic.Data;
+@using System.IO;
+@using System.Drawing;
+
+@inject IJSRuntime JSRuntime
+
+<img src="@path" alt="" id="displayImg" width="500" height="500">
+<button class="btn btn-dark" @onclick="((e) => GenerateMosaic())">Create Mosaic</button>
+
+@code{
+    private string FileInputId;
+    private ElementReference fileUpload;
+    private Image NewImage;
+    string path { get; set; }
+    private string NewImageFileName;
+    Mosaic _mosaic = new Mosaic();
+    public void GenerateMosaic()
+    {
+        Generator generator = new Generator();
+        _mosaic = generator.Generate("wwwroot/download.png", "wwwroot/Images/101_ObjectCategories/dragonfly");
+        var ImageId = Guid.NewGuid().ToString("N");
+        _mosaic.Image.Save(string.Format("wwwroot\\{0}.jpg", ImageId));
+        path = @"../"+ ImageId+".jpg";
+        _mosaic.Image.Dispose();
+    }
+
+    public static Image ConvertBase64ToImage(string ImageString, MemoryStream ms)
+    {
+        if (ImageString.Contains(";base64,"))
+        {
+            ImageString = ImageString.Substring(ImageString.IndexOf("base64") + 7);
+        }
+        byte[] bytes = Convert.FromBase64String(ImageString);
+        Image Image;
+        ms = new MemoryStream(bytes);
+        Image = Image.FromStream(ms);
+        return Image;
+    }
+
+    public async Task OnAddPhotoChange(ChangeEventArgs e)
+    {
+        try
+        {
+
+            string NewPicture = await JSRuntime.InvokeAsync<string>("readFileAsBase64", fileUpload);
+            MemoryStream ms = new MemoryStream();
+            //NewImage = ConvertBase64ToImage(NewPicture, ms);
+            //ms.Close();
+            //ms.Dispose();
+            //NewImageFileName = System.IO.Path.GetFileName(e.Value.ToString());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message.ToString());
+        }
+
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\TrimaxDev\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\TrimaxDev\\.nuget\\packages",
+      "C:\\Microsoft\\Xamarin\\NuGet"
+    ]
+  }
+}

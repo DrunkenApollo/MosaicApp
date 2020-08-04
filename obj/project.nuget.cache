@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "BjJKTxFF5RgfEibGb0ZMFNFCv2C40tt0Q78MzY29lFrvJ2ALPQn0TNhLc9WECawuvMDbdXZADCS+q76KcBZkBw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\TrimaxDev\\source\\repos\\ImageMozaic\\ImageMozaic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TrimaxDev\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0-preview.7.20364.11\\microsoft.netcore.platforms.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\TrimaxDev\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0-preview.7.20364.11\\microsoft.win32.systemevents.5.0.0-preview.7.20364.11.nupkg.sha512",
+    "C:\\Users\\TrimaxDev\\.nuget\\packages\\system.drawing.common\\5.0.0-preview.7.20364.11\\system.drawing.common.5.0.0-preview.7.20364.11.nupkg.sha512"
+  ],
+  "logs": []
+}
